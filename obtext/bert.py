@@ -8,6 +8,9 @@ import sys
 import torch
 import argparse
 import numpy as np
+from scipy.stats import ortho_group
+
+BERT_DIM = 768
 
 class Encoder:
     def __init__(self, layer=-1, cuda=True):
@@ -62,11 +65,21 @@ if __name__ == "__main__":
     
     model = Encoder(cuda=args.cuda)
     
-    _ = torch.manual_seed(args.seed)
-    _ = torch.cuda.manual_seed(args.seed + 1)
+    _ = np.random.seed(args.seed)
+    _ = torch.manual_seed(args.seed + 1)
+    _ = torch.cuda.manual_seed(args.seed + 2)
     
-    for i, line in enumerate(sys.stdin):
+    rot = ortho_group.rvs(BERT_DIM)
+    np.save('.rot', rot)
+    
+    inp = sys.stdin
+    for i, line in enumerate(inp):
+        
+        # Compute BERT encodings
         emb = model.encode_one(line)
-        emb = emb.cpu().numpy()
+        
+        # Apply random rotation to make decoding more difficult
+        emb = emb.cpu().numpy() @ rot
+        
+        # Write
         np.savetxt(sys.stdout, emb, fmt='%f')
-

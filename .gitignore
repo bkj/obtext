@@ -1,3 +1,4 @@
 *.enc
 *.egg-info
 *__pycache__*
+*.npy

@@ -5,8 +5,8 @@
 # --
 # Conda env
 
-conda create -n obstext_env python=3.7 pip -y
-conda activate obstext_env
+conda create -n obtext_env python=3.7 pip -y
+conda activate obtext_env
 
 # --
 # Requirements

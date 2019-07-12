@@ -1,4 +1,4 @@
-# obstext
+# obtext
 
 ## Installation
 
@@ -8,7 +8,7 @@ See `install.sh`
 
 ```
 # ... run install.sh ...
-conda activate obstext_env
+conda activate obtext_env
 
 cat test.txt | python -m obtext.bert > test.enc
 
