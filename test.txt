@@ -1,0 +1,1 @@
+BERT was released together with the paper BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding by Jacob Devlin et al. The model is based on the Transformer architecture introduced in Attention Is All You Need by Ashish Vaswani et al and has led to significant improvements on a wide range of downstream tasks.
