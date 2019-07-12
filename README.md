@@ -1,4 +1,4 @@
-# obstext
+# obtext
 
 ## Installation
 
